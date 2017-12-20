@@ -5,7 +5,7 @@ function Person(firstName, lastName) {
     this.lName = lastName;
 
     this.sayHello = function() {
-        return this.fName + " " + this.lName + ", Ty chuju";
+        return this.fName + " " + this.lName + ", Ty głupolu";
     }
 }
   
