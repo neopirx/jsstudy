@@ -21,10 +21,35 @@ function Rectangle(sideLengths) {
     this._name = "Prostokąt";
 }
 
-function Square(sideLength) {
-    Rectangle.call(this, [sideLength, sideLength]);
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+
+function Square(sideLengths) {
+    Rectangle.call(this, [sideLengths, sideLengths]);
 
     this._name = "Kwadrat";
 }
 
-var shape1 = new Square(20);
+Square.prototype = Object.create(Rectangle.prototype);
+Square.prototype.constructor = Square;
+
+function Triangle(sideLengths) {
+    Shape.call(this, [sideLengths, sideLengths, sideLengths]);
+
+    this._name = "Trojkat";
+}
+
+Triangle.prototype = Object.create(Shape.prototype);
+Triangle.prototype.constructor = Triangle;
+
+Triangle.prototype.getArea = function() {
+
+    var a = this._sideLengths[0];
+    return +( (a * a  * Math.sqrt(3)) / 4).toFixed(2);
+
+};
+
+var square = new Square(20);
+var triangle = new Triangle(20);
+var rectangle = new Rectangle([20, 10]);
+
